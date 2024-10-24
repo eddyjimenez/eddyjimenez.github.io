@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Developedia - Home</title>
     <link rel="stylesheet" href="styles.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
 </head>
 <body>
     <header class="header">
@@ -27,53 +29,46 @@
     </section>
 
     <section class="main-content">
-        <div class="left-column">
-            <img src="images/web_developedia.png" alt="Web Developedia Logo" class="main-logo">
-        </div>
-        
-        <div class="right-column">
-            <h3>Welcome to Web Developedia</h3>
-            <p>Web Developedia is a comprehensive learning platform designed to help beginners understand the fundamentals of web development. Our goal is to make web development accessible to everyone, regardless of technical background or experience. This website is <strong>open to anyone around the world</strong> and completely free, serving as a resource for those who want to get started but don’t know where to begin.</p>
-            
-            <h4>Our Mission</h4>
-            <p>We believe that anyone with the curiosity and drive to learn should have the opportunity to explore web development. Our mission is to empower aspiring developers by providing clear, practical, and beginner-friendly guidance. We aim to demystify the process of creating websites and open doors to new skills and career opportunities.</p>
-            
-            <!-- Existing code from "What You’ll Learn" section -->
-            <h4>What You’ll Learn</h4>
-            <p>Web Developedia offers a structured learning path to help you build a solid foundation in web development. You’ll gain hands-on experience with:</p>
-            <ul>
-                <li><strong>HTML</strong>: The essential building block of web pages, helping you structure your content.</li>
-                <li><strong>CSS</strong>: Learn to style and layout your web pages to create visually appealing designs.</li>
-                <li><strong>JavaScript</strong>: Discover how to add interactivity and functionality to make your websites dynamic.</li>
-            </ul>
-            <p>Beyond the basics, we explore more advanced topics such as responsive design, popular frameworks like <strong>Bootstrap</strong>, and an introduction to JavaScript libraries like <strong>React</strong>. Our goal is to give you not just theoretical knowledge but also practical skills that you can apply in real-world projects.</p>
+        <div class="content-wrapper">
+            <div class="left-column">
+                <img src="images/web_developedia.png" alt="Web Developedia Logo" class="main-logo">
+                
+                <h3>Welcome to Web Developedia</h3>
+                <p>Web Developedia is a comprehensive learning platform designed to help beginners understand the fundamentals of web development...</p>
+                
+                <h4>Our Mission</h4>
+                <p>We believe that anyone with the curiosity and drive to learn should have the opportunity to explore web development...</p>
+                
+                <h4>What You’ll Learn</h4>
+                <ul>
+                    <li><strong>HTML</strong>: The essential building block of web pages, helping you structure your content.</li>
+                    <li><strong>CSS</strong>: Learn to style and layout your web pages to create visually appealing designs.</li>
+                    <li><strong>JavaScript</strong>: Discover how to add interactivity and functionality to make your websites dynamic.</li>
+                </ul>
 
-            <!-- New paragraph about additional resources -->
-            <p>To make web development easier for beginners, we will also utilize popular resources such as <strong>Wix</strong> for building websites without coding, and learning platforms like <strong>W3Schools</strong> and <strong>GeeksforGeeks</strong> to provide additional tutorials and references for further study.</p>
-            <!-- End of new content addition -->
+                <h4>Who Is This For?</h4>
+                <p>Web Developedia is for anyone looking to explore web development, including:</p>
+                <ul>
+                    <li><strong>Aspiring Developers</strong> who want to start a career in tech.</li>
+                    <li><strong>Students</strong> seeking additional resources to supplement their education.</li>
+                    <li><strong>Self-Learners</strong> curious about building their own websites and applications.</li>
+                </ul>
+            </div>
 
-            <!-- Remaining code remains the same -->
-
-
-            <h4>Who Is This For?</h4>
-            <p>Web Developedia is for anyone looking to explore web development, including:</p>
-            <ul>
-                <li><strong>Aspiring Developers</strong> who want to start a career in tech.</li>
-                <li><strong>Students</strong> seeking additional resources to supplement their education.</li>
-                <li><strong>Self-Learners</strong> curious about building their own websites and applications.</li>
-            </ul>
-
-            <h4>Why Web Developedia?</h4>
-            <ul>
-                <li><strong>Beginner-Focused Content</strong>: We break down complex topics into easy-to-understand tutorials and lessons.</li>
-                <li><strong>Real-World Projects</strong>: Learn through hands-on projects and exercises designed for beginners.</li>
-                <li><strong>Supportive Community</strong>: Join a growing community of learners and developers eager to share their knowledge and help each other grow.</li>
-            </ul>
-
-            <h4>Ready to Start?</h4>
-            <p>Whether you’re aiming to build your first website, enhance your digital skills, or embark on a new career path, Web Developedia is here to guide you. Start your journey today, and let’s build something amazing together!</p>
-
-        
+            <div class="right-column">
+                <div class="carousel-container">
+                    
+                    <div class="carousel">
+                        <div class="carousel-images">
+                            <img src="images/slide1.jfif" alt="Slide 1" class="carousel-slide active">
+                            <img src="images/slide2.webp" alt="Slide 2" class="carousel-slide">
+                            <img src="images/slide3.jfif" alt="Slide 3" class="carousel-slide">
+                        </div>
+                        <button class="carousel-button prev">❮</button>
+                        <button class="carousel-button next">❯</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

@@ -70,6 +70,7 @@ body {
     padding-bottom: 0.5rem;
 }
 
+/* Footer Styling */
 .footer {
     background-color: #333;
     color: white;
@@ -190,4 +191,93 @@ body.dark-mode .footer {
 
 body.dark-mode .footer a {
     color: #FFD700; /* Keep the footer links in yellow */
+}
+
+/* General Content Wrapper */
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Left Column Content Styling */
+.left-column {
+    flex: 3;
+    padding-right: 20px;
+}
+
+/* Right Column Styling */
+.right-column {
+    flex: 1;
+    max-width: 300px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+/* Carousel Container Styling */
+.carousel-container {
+    width: 100%;
+    background-color: transparent; /* Keep the carousel container background transparent */
+    border: 4px solid #FFD700; /* Add a yellow border */
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 0; /* Remove any top margin */
+    padding: 9px; /* Remove unnecessary padding */
+    position: relative; /* To position the buttons relative to the container */
+}
+
+
+/* Carousel Styling */
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative; /* Keeps the images and buttons within this container */
+}
+
+/* Styling for Carousel Buttons */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.3); /* Make the button background slightly transparent */
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 100;
+    border-radius: 50%; /* Make buttons rounded for a cleaner look */
+    width: 30px; /* Set a fixed width */
+    height: 30px; /* Set a fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Adjust button positioning outside of the image */
+.carousel-button.prev {
+    left: -15px; /* Moves the previous button outside the left edge */
+}
+
+.carousel-button.next {
+    right: -15px; /* Moves the next button outside the right edge */
+}
+
+/* Slide Image Styling */
+.carousel-slide {
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+/* Dark Mode Adjustment for Carousel */
+body.dark-mode .carousel-button {
+    background: rgba(255, 255, 255, 0.3); /* Light button background in dark mode */
+    color: #333;
 }
