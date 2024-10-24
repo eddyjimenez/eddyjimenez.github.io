@@ -15,7 +15,10 @@
                 <li><a href="persona2.html">Persona 2</a></li>
                 <li><a href="scenario1.html">Scenario 1</a></li>
                 <li><a href="scenario2.html">Scenario 2</a></li>
+                <li><a href="moodboard.html">MoodBoard</a></li>
+                <li><a href="storyboard.html">StoryBoard</a></li>
             </ul>
+            <button id="darkModeToggle" class="dark-mode-toggle">Dark Mode</button>
         </nav>
     </header>
 
@@ -24,7 +27,9 @@
         <div class="scenario-content">
             <img src="images/Guy 1.jpg" alt="Mark's Photo" class="persona-photo">
             <div class="scenario-image">
-                <img src="images/scenario2.png" alt="Mark's Business Growth Flowchart" class="flowchart-image">
+                <img src="images/scenario2.png" alt="Mark's Business Growth Flowchart" class="flowchart-image" 
+                     data-light="images/scenario2.png"
+                     data-dark="images/darkscenario2.png">
             </div>
         </div>
         <div class="scenario-description">
@@ -33,8 +38,6 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <p>Click <a href="proposal.pdf">here</a> for the project proposal.</p>
-    </footer>
+    <script src="index.js"></script>
 </body>
 </html>

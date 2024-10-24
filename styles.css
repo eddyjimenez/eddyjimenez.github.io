@@ -82,3 +82,112 @@ body {
     color: #FFD700;
     text-decoration: underline;
 }
+
+/* Moodboard Page Styling */
+.moodboard-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    background-color: #e0f7fa; /* Light blue background */
+    border-radius: 8px;
+}
+
+.moodboard-container h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.full-page-image {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Storyboard Page Styling */
+.storyboard-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    background-color: #e0f7fa; /* Light blue background */
+    border-radius: 8px;
+}
+
+.storyboard-container h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Keep the navbar above other content when scrolling */
+}
+
+/* Dark Mode Button Styling */
+.dark-mode-toggle {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: auto;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark-mode .navbar {
+    background-color: #222;
+}
+
+body.dark-mode a {
+    color: #ccc;
+}
+
+body.dark-mode .dark-mode-toggle {
+    background-color: #666;
+}
+
+/* Dark mode adjustments for specific containers */
+body.dark-mode .scenario-container, 
+body.dark-mode .persona-container, 
+body.dark-mode .moodboard-container, 
+body.dark-mode .storyboard-container {
+    background-color: #1f1f1f; /* Darker background for containers */
+    color: white;
+}
+
+/* Adjusting headers and paragraphs for dark mode */
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode p, 
+body.dark-mode ul li {
+    color: white; /* Ensure all headers and text elements are white */
+}
+
+/* Footer dark mode styles */
+body.dark-mode .footer {
+    background-color: #222;
+    color: #ccc;
+}
+
+body.dark-mode .footer a {
+    color: #FFD700; /* Keep the footer links in yellow */
+}
