@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Developedia - Persona 2</title>
     <link rel="stylesheet" href="styles.css">
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
 </head>
 <body>
@@ -24,10 +23,11 @@
         </nav>
     </header>
 
-    <section class="persona-container">
+    <section class="persona-container persona1-layout">
         <h1>Persona 2: Mark</h1>
-        <div class="persona-details">
-            <div class="persona-left">
+        <div class="content-wrapper">
+            <!-- Left Column: Persona Details -->
+            <div class="left-column">
                 <img src="images/Guy 1.jpg" alt="Mark's picture" class="persona-image">
                 <h3>Persona Type: Business Owner</h3>
                 <ul>
@@ -37,11 +37,15 @@
                     <li><strong>Technical Comfort:</strong> Intermediate</li>
                     <li><strong>Profession:</strong> Owns a Bakery</li>
                 </ul>
-            </div>
-            <div class="persona-right">
                 <blockquote class="persona-quote">
                     "I need a website that’s easy to set up and shows my customers what we offer. I’m not a tech expert, so it has to be simple but professional enough to help my business grow."
                 </blockquote>
+            </div>
+
+            <!-- Right Column: Carousel -->
+            <div class="right-column">
+                <!-- Carousel will be dynamically loaded here -->
+                <div class="carousel-placeholder"></div>
             </div>
         </div>
 

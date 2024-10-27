@@ -27,14 +27,25 @@ document.addEventListener('DOMContentLoaded', () => {
         { opacity: 0, rotateY: 90 }, // Initial state (flipped horizontally)
         { opacity: 1, rotateY: 0, duration: 1.5, ease: "power3.out" } // Final state (normal orientation)
     );
-    
-    
+
+    // Load the carousel HTML content
+    loadCarousel();
 });
 
-const toggleButton = document.getElementById('darkModeToggle');
-const images = document.querySelectorAll('img[data-light][data-dark]'); // Select images with both data-light and data-dark attributes
+// Function to load the carousel HTML content into a target element
+function loadCarousel() {
+    fetch('carousel.html')
+        .then(response => response.text())
+        .then(data => {
+            document.querySelector('.carousel-placeholder').innerHTML = data;
+            initializeCarousel(); // Call the function to initialize the carousel events after loading
+        })
+        .catch(error => console.error('Error loading carousel:', error));
+}
 
+// Function to update images for dark mode
 const updateImagesForDarkMode = (isDarkMode) => {
+    const images = document.querySelectorAll('img[data-light][data-dark]');
     images.forEach(img => {
         const lightSrc = img.getAttribute('data-light');
         const darkSrc = img.getAttribute('data-dark');
@@ -42,45 +53,44 @@ const updateImagesForDarkMode = (isDarkMode) => {
     });
 };
 
+// Dark mode toggle functionality
+const toggleButton = document.getElementById('darkModeToggle');
 toggleButton.addEventListener('click', () => {
-    // Toggle dark mode class on the body
     const isDarkMode = document.body.classList.toggle('dark-mode');
-
-    // Update images based on the dark mode state
     updateImagesForDarkMode(isDarkMode);
-
-    // Save dark mode preference in localStorage
     localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
     console.log('Dark mode enabled:', isDarkMode); // Log the current state for debugging
 });
 
-// JavaScript to handle the image carousel
-let currentSlideIndex = 0;
-const slides = document.querySelectorAll('.carousel-slide');
-const prevButton = document.querySelector('.carousel-button.prev');
-const nextButton = document.querySelector('.carousel-button.next');
+// Function to initialize carousel functionality
+function initializeCarousel() {
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevButton = document.querySelector('.carousel-button.prev');
+    const nextButton = document.querySelector('.carousel-button.next');
 
-function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        if (i === index) {
-            slide.classList.add('active');
-        }
-    });
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === index) {
+                slide.classList.add('active');
+            }
+        });
+    }
+
+    function nextSlide() {
+        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+        showSlide(currentSlideIndex);
+    }
+
+    function prevSlide() {
+        currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+        showSlide(currentSlideIndex);
+    }
+
+    nextButton.addEventListener('click', nextSlide);
+    prevButton.addEventListener('click', prevSlide);
+
+    // Automatically move to the next slide every 3 seconds
+    setInterval(nextSlide, 3000);
 }
-
-function nextSlide() {
-    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-    showSlide(currentSlideIndex);
-}
-
-function prevSlide() {
-    currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-    showSlide(currentSlideIndex);
-}
-
-nextButton.addEventListener('click', nextSlide);
-prevButton.addEventListener('click', prevSlide);
-
-// Automatically move to the next slide every 3 seconds
-setInterval(nextSlide, 3000);
