@@ -386,3 +386,64 @@ button:hover, .carousel-button:hover, .dark-mode-toggle:hover {
     flex: 2;
     padding: 20px;
 }
+
+/* Media Query for Mobile and Tablet Screens */
+@media (max-width: 768px) {
+    .navbar ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar li {
+        display: block;
+        margin: 0.5rem 0;
+    }
+
+    .header {
+        text-align: center;
+    }
+
+    .content-wrapper {
+        flex-direction: column; /* Stack columns vertically */
+        align-items: center;
+    }
+
+    .left-column,
+    .middle-column,
+    .right-column {
+        width: 90%; /* Reduce width for better readability */
+        padding: 0; /* Remove extra padding */
+    }
+
+    .main-logo {
+        max-width: 100%; /* Ensure the logo scales on smaller screens */
+        height: auto;
+    }
+
+    .middle-column h3 {
+        font-size: 1.5rem;
+    }
+
+    .middle-column p, .middle-column ul {
+        text-align: center;
+        padding: 0.5rem;
+    }
+
+    .intro-title {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .dark-mode-toggle {
+        display: block;
+        margin: 1rem auto;
+    }
+
+    .footer {
+        padding: 1rem;
+        text-align: center;
+    }
+}
