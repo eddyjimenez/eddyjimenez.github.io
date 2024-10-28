@@ -250,6 +250,7 @@ body.dark-mode .footer a {
     align-items: flex-start;
 }
 
+
 /* Carousel Container Styling */
 .carousel-placeholder {
     width: 300px;
@@ -324,15 +325,10 @@ body.dark-mode .carousel-button {
 button:hover, .carousel-button:hover, .dark-mode-toggle:hover {
     background-color: #FFD700; /* Change the background color on hover */
     color: #333; /* Change text color on hover */
-    transform: scale(1.1); /* Slightly enlarge the button */
     transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition */
 }
 
-/* Additional hover effects for carousel buttons */
-.carousel-button:hover {
-    background-color: rgba(255, 255, 255, 0.5); /* Lighter background for carousel buttons */
-    color: #333; /* Darker color for text or icon */
-}
+
 
 /* Hover effect for navbar links */
 .navbar a:hover {
@@ -383,4 +379,10 @@ button:hover, .carousel-button:hover, .dark-mode-toggle:hover {
 .persona-quote {
     margin: 20px 0 0 0; /* Add top margin to create space */
     font-style: italic;
+}
+
+/* Middle Column Styling */
+.middle-column {
+    flex: 2;
+    padding: 20px;
 }
