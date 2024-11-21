@@ -84,26 +84,59 @@ body {
     text-decoration: underline;
 }
 
-/* Moodboard Page Styling */
+/* Title Styling */
+.moodboard-title {
+    margin: 0 0 20px 0;
+    font-size: 2rem;
+    text-align: center; /* Center the text inside the column */
+}
+.moodboard-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center; /* Align the image and the title in the center */
+    gap: 40px;
+}
+
+
+/* Left Column with Title and Image */
+.moodboard-left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 2;
+}
+
+.moodboard-right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Flex Layout for Moodboard Page */
 .moodboard-container {
-    padding: 2rem;
+    display: flex;
+    justify-content: center; /* Center the content in the container */
     max-width: 1200px;
     margin: auto;
-    text-align: center;
-    background-color: #e0f7fa; /* Light blue background */
+    padding: 2rem;
+    background-color: #e0f7fa;
     border-radius: 8px;
 }
 
+/* Specific to Moodboard Page */
 .moodboard-container h1 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 1rem;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
+/* Full Page Image Styling */
 .full-page-image {
     width: 100%;
-    max-width: 1200px;
-    height: auto;
+    max-width: 700px;
     border-radius: 8px;
 }
 
@@ -197,7 +230,8 @@ body.dark-mode .footer a {
 .content-wrapper {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    gap: 40px; /* Create space between columns */
+    max-width: 100%;
 }
 
 /* Left Column Content Styling */
@@ -208,12 +242,18 @@ body.dark-mode .footer a {
 
 /* Right Column Styling */
 .right-column {
-    flex: 1;
-    max-width: 300px;
+    flex: 2;
+    max-width: 400px;
     padding-left: 20px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+
+/* Carousel Container Styling */
+.carousel-placeholder {
+    width: 300px;
 }
 
 
@@ -224,8 +264,7 @@ body.dark-mode .footer a {
     border: 4px solid #FFD700; /* Add a yellow border */
     border-radius: 8px;
     overflow: hidden;
-    margin-top: 0; /* Remove any top margin */
-    padding: 9px; /* Remove unnecessary padding */
+    
     position: relative; /* To position the buttons relative to the container */
 }
 
@@ -280,4 +319,185 @@ body.dark-mode .footer a {
 body.dark-mode .carousel-button {
     background: rgba(255, 255, 255, 0.3); /* Light button background in dark mode */
     color: #333;
+}
+
+/* Styling for hover effects on buttons */
+button:hover, .carousel-button:hover, .dark-mode-toggle:hover {
+    background-color: #FFD700; /* Change the background color on hover */
+    color: #333; /* Change text color on hover */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+
+
+/* Hover effect for navbar links */
+.navbar a:hover {
+    color: #FFD700; /* Change text color on hover to a bright yellow */
+    text-decoration: underline; /* Add an underline effect on hover */
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth transition */
+}
+
+/* Optional: Slight scale effect on hover */
+.navbar a:hover {
+    transform: scale(1.1); /* Slightly enlarge the text */
+}
+
+/* Flex Layout for Persona 1 Content */
+.persona1-layout .content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 100%;
+}
+
+/* Left Column Styling for Persona 1 */
+.persona1-layout .left-column {
+    flex: 2;
+    padding-right: 20px;
+}
+
+/* Center Column Styling for Persona 1 */
+.persona1-layout .center-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Right Column Styling for Persona 1 */
+.persona1-layout .right-column {
+    flex: 2;
+    max-width: 400px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Make sure blockquote has some margin adjustments to align */
+.persona-quote {
+    margin: 20px 0 0 0; /* Add top margin to create space */
+    font-style: italic;
+}
+
+/* Middle Column Styling */
+.middle-column {
+    flex: 2;
+    padding: 20px;
+}
+
+/* Media Query for Mobile and Tablet Screens */
+@media (max-width: 768px) {
+    .navbar ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar li {
+        display: block;
+        margin: 0.5rem 0;
+    }
+
+    .header {
+        text-align: center;
+    }
+
+    .content-wrapper {
+        flex-direction: column; /* Stack columns vertically */
+        align-items: center;
+    }
+
+    .left-column,
+    .middle-column,
+    .right-column {
+        width: 90%; /* Reduce width for better readability */
+        padding: 0; /* Remove extra padding */
+    }
+
+    .main-logo {
+        max-width: 100%; /* Ensure the logo scales on smaller screens */
+        height: auto;
+    }
+
+    .middle-column h3 {
+        font-size: 1.5rem;
+    }
+
+    .middle-column p, .middle-column ul {
+        text-align: center;
+        padding: 0.5rem;
+    }
+
+    .intro-title {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .dark-mode-toggle {
+        display: block;
+        margin: 1rem auto;
+    }
+
+    .footer {
+        padding: 1rem;
+        text-align: center;
+    }
+}
+
+/* Wireframe Page Styling */
+.wireframe-container {
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+    background-color: #e0f7fa;
+    border-radius: 8px;
+}
+
+.wireframe-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    gap: 40px;
+}
+
+.wireframe-left-column {
+    width: 100%; /* Ensures the column allows the image to grow fully */
+    max-width: 1000px; /* Or set this to whatever width you need */
+}
+
+
+.wireframe-right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Title Styling */
+.wireframe-title {
+    margin: 0 0 20px 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Wireframe Image Specific Styling */
+/* Wireframe Image Specific Styling */
+.wireframe {
+    width: 100%;             /* Make the image take full width of its container */
+    max-width: 1200px;       /* Increase this value to make the image bigger */
+    border-radius: 8px;      /* Optional: rounded corners */
+    display: block;          /* Ensures image displays properly */
+    margin: 0 auto;          /* Center the image */
+}
+/* Spacing for Second Wireframe Image */
+.wireframe + .wireframe {
+    margin-top: 50px; /* Adjust this value to control the space between the images */
 }
