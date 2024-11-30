@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Developedia - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+        
+            <ul>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="persona1.html">Persona 1</a></li>
+                <li><a href="persona2.html">Persona 2</a></li>
+                <li><a href="scenario1.html">Scenario 1</a></li>
+                <li><a href="scenario2.html">Scenario 2</a></li>
+                <li><a href="moodboard.html">MoodBoard</a></li>
+                <li><a href="storyboard.html">StoryBoard</a></li>
+                <li><a href="flowchart.html">Flowchart</a></li>
+                <li><a href="wireframe.html">Wireframe</a></li>
+                <li><a href="prototype.html">Prototype</a></li>
+            </ul>
+            <button id="darkModeToggle" class="dark-mode-toggle">Dark Mode</button>
+        </nav>
+    </header>
+
+    <!-- Email Subscription Section -->
+<section class="email-subscription">
+    <h2>Subscribe to Updates</h2>
+    <p>Enter your email to stay updated with the latest tutorials and resources:</p>
+    <form id="subscription-form">
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+    </form>
+    <p id="subscription-message" class="subscription-message"></p>
+</section>
+
+<!-- Help Button -->
+<button id="help-button" class="help-toggle">Help</button>
+
+<!-- Help Sidebar -->
+<div id="help-sidebar" class="help-sidebar">
+    <h2>Need Help?</h2>
+    <p>Here are some quick links to guide you:</p>
+    <ul>
+        <li><a href="https://www.w3schools.com/html/" target="_blank">HTML Basics</a></li>
+        <li><a href="https://www.w3schools.com/css/" target="_blank">CSS Basics</a></li>
+        <li><a href="https://www.w3schools.com/js/" target="_blank">JavaScript Basics</a></li>
+    </ul>
+    <p>FAQs:</p>
+    <ul>
+        <li>What is Web Developedia? <br> <small>A beginner-friendly platform for web development.</small></li>
+        <li>Where do I start? <br> <small>Check out the <a href="introduction.html">Introduction</a> page.</small></li>
+    </ul>
+    <button id="close-help" class="help-close">Close</button>
+</div>
+
+
+
+
+    <section class="intro-section">
+        <h2 class="intro-title">Introduction</h2>
+    </section>
+
+    <section class="main-content persona1-layout">
+        <div class="content-wrapper">
+            <!-- Left Column: Logo -->
+            <div class="left-column">
+                <img src="images/web_developedia.png" alt="Web Developedia Logo" class="main-logo">
+            </div>
+
+            <!-- Middle Column: Introduction Text -->
+            <div class="middle-column">
+                <h3>Welcome to Web Developedia</h3>
+                <p>Web Developedia is a comprehensive learning platform designed to help beginners understand the fundamentals of web development.</p>
+                <h4>Our Mission</h4>
+                <p>We believe that anyone with the curiosity and drive to learn should have the opportunity to explore web development.</p>
+                
+                <h4>What You’ll Learn</h4>
+                <ul>
+                    <li><strong><a href="https://www.w3schools.com/html/" target="_blank">HTML</a></strong>: The essential building block of web pages, helping you structure your content.</li>
+                    <li><strong><a href="https://www.w3schools.com/css/" target="_blank">CSS</a></strong>: Learn to style and layout your web pages to create visually appealing designs.</li>
+                    <li><strong><a href="https://www.w3schools.com/js/" target="_blank">JavaScript</a></strong>: Discover how to add interactivity and functionality to make your websites dynamic.</li>
+                </ul>
+
+                <h4>Why Web Developedia?</h4>
+                <ul>
+                    <li><strong>Beginner-Focused Content</strong>: We break down complex topics into easy-to-understand tutorials and lessons.</li>
+                    <li><strong>Real-World Projects</strong>: Learn through hands-on projects and exercises designed for beginners.</li>
+                    <li><strong>Supportive Community</strong>: Join a growing community of learners and developers eager to share their knowledge and help each other grow.</li>
+                </ul>
+
+                <h4>Who Is This For?</h4>
+                <p>Web Developedia is for anyone looking to explore web development, including:</p>
+                <ul>
+                    <li><strong>Aspiring Developers</strong> who want to start a career in tech.</li>
+                    <li><strong>Students</strong> seeking additional resources to supplement their education.</li>
+                    <li><strong>Self-Learners</strong> curious about building their own websites and applications.</li>
+                </ul>
+
+                <p>To make web development easier for beginners, we will also utilize popular resources such as <strong><a href="https://www.wix.com" target="_blank">Wix</a></strong> for building websites without coding, and learning platforms like <strong><a href="https://www.w3schools.com" target="_blank">W3Schools</a></strong> and <strong><a href="https://www.geeksforgeeks.org" target="_blank">GeeksforGeeks</a></strong> to provide additional tutorials and references for further study.</p>
+            </div>
+
+            <!-- Right Column: Carousel -->
+            <div class="right-column">
+                <div class="carousel-placeholder"></div>
+            </div>
+        </div>
+    </section>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Section: Quiz -->
+    <section class="quiz-container">
+        <h2>Test Your Web Development Knowledge</h2>
+        <form id="quiz-form">
+            <p>1. What does HTML stand for?</p>
+            <input type="radio" id="html1" name="q1" value="correct"><label for="html1">Hyper Text Markup Language</label><br>
+            <input type="radio" id="html2" name="q1" value="incorrect"><label for="html2">High Text Makeup Language</label><br>
+            <button type="submit">Submit</button>
+        </form>
+        <p id="quiz-result"></p>
+    </section>
+
+
+
+    <!-- New Section: Code Editor -->
+    <section class="code-editor">
+        <h2>Try It Yourself</h2>
+        <textarea id="html-code" placeholder="Type your HTML here"></textarea>
+        <textarea id="css-code" placeholder="Type your CSS here"></textarea>
+        <textarea id="js-code" placeholder="Type your JavaScript here"></textarea>
+        <button id="run-code">Run Code</button>
+        <button id="clear-code">Clear Code</button>
+        <iframe id="output"></iframe>
+    </section>
+
+    <!-- New Section: Resources -->
+    <section class="resources">
+        <h2>Tutorials</h2>
+        <div class="filter-bar">
+            <input type="text" id="filter-input" placeholder="Filter...">
+            <button id="clear-filter">✖</button>
+        </div>
+        <div class="resource-container">
+            <!-- HTML and CSS -->
+            <div class="resource-category">
+                <h3>HTML and CSS</h3>
+                <ul>
+                    <li><a href="https://www.w3schools.com/html/" target="_blank">Learn HTML</a> | <a href="https://www.w3schools.com/tags/default.asp" target="_blank">Reference</a></li>
+                    <li><a href="https://www.w3schools.com/css/" target="_blank">Learn CSS</a> | <a href="https://www.w3schools.com/cssref/" target="_blank">Reference</a></li>
+                    <li><a href="https://www.w3schools.com/bootstrap/" target="_blank">Learn Bootstrap</a> | <a href="https://www.w3schools.com/bootstrap/bootstrap_ref_all_classes.asp" target="_blank">Reference</a></li>
+                </ul>
+            </div>
+            
+            <!-- JavaScript -->
+            <div class="resource-category">
+                <h3>JavaScript</h3>
+                <ul>
+                    <li><a href="https://www.w3schools.com/js/" target="_blank">Learn JavaScript</a> | <a href="https://www.w3schools.com/jsref/" target="_blank">Reference</a></li>
+                    <li><a href="https://www.w3schools.com/react/" target="_blank">Learn React</a> | <a href="https://www.w3schools.com/react/react_references.asp" target="_blank">Reference</a></li>
+                    <li><a href="https://www.w3schools.com/vue/" target="_blank">Learn Vue</a> | <a href="#" target="_blank">Reference</a></li>
+                </ul>
+            </div>
+            
+            <!-- Backend -->
+            <div class="resource-category">
+                <h3>Backend</h3>
+                <ul>
+                    <li><a href="https://www.w3schools.com/python/" target="_blank">Learn Python</a> | <a href="https://www.w3schools.com/python/python_reference.asp" target="_blank">Reference</a></li>
+                    <li><a href="https://www.w3schools.com/sql/" target="_blank">Learn SQL</a> | <a href="https://www.w3schools.com/sql/sql_quickref.asp" target="_blank">Reference</a></li>
+                    <li><a href="https://www.w3schools.com/php/" target="_blank">Learn PHP</a> | <a href="https://www.w3schools.com/php/php_ref_overview.asp" target="_blank">Reference</a></li>
+                </ul>
+            </div>
+            
+            <!-- Web Building -->
+            <div class="resource-category">
+                <h3>Web Building</h3>
+                <ul>
+                    <li><a href="https://www.w3schools.com/howto/howto_website_host_staticwebsite.asp" target="_blank">Create a Website</a></li>
+                    <li><a href="https://www.w3schools.com/howto/howto_website_host_staticwebsite.asp" target="_blank">Create a Server</a></li>
+                    <li><a href="https://www.w3schools.com/w3css/w3css_templates.asp" target="_blank">Web Templates</a></li>
+                </ul>
+            </div>
+            
+            <!-- Data Analytics and AI -->
+            <div class="resource-category">
+                <h3>Data Analytics and AI</h3>
+                <ul>
+                    <li><a href="https://www.w3schools.com/ai/" target="_blank">Learn AI</a></li>
+                    <li><a href="https://www.w3schools.com/gen_ai/index.php" target="_blank">Learn Generative AI</a></li>
+                    <li><a href="https://www.w3schools.com/gen_ai/chatgpt-3-5/index.php" target="_blank">Learn ChatGPT-3.5</a></li>
+                    <li><a href="https://www.w3schools.com/gen_ai/chatgpt-4/index.php" target="_blank">Learn ChatGPT-4</a></li>
+                    <li><a href="https://www.w3schools.com/gen_ai/bard/index.php" target="_blank">Learn Google Bard</a></li>
+                    <li><a href="https://www.w3schools.com/python/python_ml_getting_started.asp" target="_blank">Learn Machine Learning</a></li>
+                    <li><a href="https://www.w3schools.com/dsa/" target="_blank">Learn DSA</a></li>
+                    <li><a href="https://www.w3schools.com/datascience/" target="_blank">Learn Data Science</a></li>
+                    <li><a href="https://www.w3schools.com/python/numpy_intro.asp" target="_blank">Learn NumPy</a></li>
+                    <li><a href="https://www.w3schools.com/python/pandas/default.asp" target="_blank">Learn Pandas</a></li>
+                    <li><a href="https://www.w3schools.com/python/scipy_intro.asp" target="_blank">Learn SciPy</a></li>
+                    <li><a href="https://www.w3schools.com/python/matplotlib_intro.asp" target="_blank">Learn Matplotlib</a></li>
+                    <li><a href="https://www.w3schools.com/statistics/" target="_blank">Learn Statistics</a></li>
+                    <li><a href="https://www.w3schools.com/excel/" target="_blank">Learn Excel</a></li>
+                    <li><a href="https://www.w3schools.com/googlesheets/" target="_blank">Learn Google Sheets</a></li>
+
+                </ul>
+            </div>
+            
+            <div class="resource-category">
+                <h3>Wix Tutorial</h3>
+                 <!-- Wix Video -->
+        <div class="wix-video">
+            <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/YxpjW-Mq96Q" 
+                    title="Wix Tutorial Video" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+        </div>
+        <!-- Wix Description -->
+        <div class="wix-description">
+            <p>Learn how to create stunning websites effortlessly using Wix. This tutorial will guide you step by step in building your own professional website without needing any coding knowledge.</p>
+            <a href="https://www.wix.com" target="_blank" class="wix-link">Visit Wix.com</a>
+        </div>
+            </div>
+            
+        </div>
+    </section>
+
+    
+
+    
+    
+
+    <script src="index.js"></script>
+</body>
+</html>

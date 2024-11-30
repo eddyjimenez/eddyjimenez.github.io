@@ -1,4 +1,3 @@
-// GSAP animation for the main logo
 document.addEventListener('DOMContentLoaded', () => {
     // Check localStorage for dark mode preference on page load
     const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
@@ -7,90 +6,235 @@ document.addEventListener('DOMContentLoaded', () => {
         updateImagesForDarkMode(true);
     }
 
-    gsap.fromTo('.main-logo', 
-        { opacity: 0, scale: 0.3 }, // Initial state (faded out and scaled down)
-        { opacity: 1, scale: 1, duration: 1.5, ease: "power3.out" } // Final state (fully visible and normal size)
-    );
+    // Dark Mode Toggle Functionality
+    const toggleButton = document.getElementById('darkModeToggle');
+    if (toggleButton) {
+        console.log('Dark Mode Toggle button found!');
+        toggleButton.addEventListener('click', () => {
+            const darkModeEnabled = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', darkModeEnabled ? 'enabled' : 'disabled');
+            updateImagesForDarkMode(darkModeEnabled);
+        });
+    } else {
+        console.error('Dark Mode Toggle button NOT found!');
+    }
 
-    // GSAP animation for the persona image
-    gsap.fromTo('.persona-image', 
-        { opacity: 0, scale: 0.1 }, // Initial state (faded out and scaled down)
-        { opacity: 1, scale: 1, duration: 1.5, ease: "power3.out" } // Final state (fully visible and normal size)
-    );
+    // GSAP Animations
+    animateWithGSAP('.main-logo', { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 1.5 });
+    animateWithGSAP('.persona-image', { opacity: 0, scale: 0.1 }, { opacity: 1, scale: 1, duration: 1.5 });
+    animateWithGSAP('.flowchart-image', { opacity: 0, scale: 0.1 }, { opacity: 1, scale: 1, duration: 1.5 });
+    animateWithGSAP('.full-page-image', { opacity: 0, rotateY: 90 }, { opacity: 1, rotateY: 0, duration: 1.5 });
 
-    gsap.fromTo('.flowchart-image', 
-        { opacity: 0, scale: 0.1 }, // Initial state (faded out and scaled down)
-        { opacity: 1, scale: 1, duration: 1.5, ease: "power3.out" } // Final state (fully visible and normal size)
-    );
-
-    gsap.fromTo('.full-page-image', 
-        { opacity: 0, rotateY: 90 }, // Initial state (flipped horizontally)
-        { opacity: 1, rotateY: 0, duration: 1.5, ease: "power3.out" } // Final state (normal orientation)
-    );
-
-    // Load the carousel HTML content
+    // Load Carousel
     loadCarousel();
-});
 
-// Function to load the carousel HTML content into a target element
-function loadCarousel() {
-    fetch('carousel.html')
-        .then(response => response.text())
-        .then(data => {
-            document.querySelector('.carousel-placeholder').innerHTML = data;
-            initializeCarousel(); // Call the function to initialize the carousel events after loading
-        })
-        .catch(error => console.error('Error loading carousel:', error));
+    // Quiz Submission
+    const quizForm = document.getElementById('quiz-form');
+    if (quizForm) {
+        quizForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const answer = document.querySelector('input[name="q1"]:checked');
+            const result = document.getElementById('quiz-result');
+            if (answer && answer.value === 'correct') {
+                result.textContent = 'Correct! HTML stands for Hyper Text Markup Language.';
+            } else {
+                result.textContent = 'Incorrect! Try again.';
+            }
+        });
+    }
+
+
+    
+
+    // Code Editor Functionality
+    const runCodeButton = document.getElementById('run-code');
+    if (runCodeButton) {
+        runCodeButton.addEventListener('click', () => {
+            const html = document.getElementById('html-code').value;
+            const css = `<style>${document.getElementById('css-code').value}</style>`;
+            const js = `<script>${document.getElementById('js-code').value}<\/script>`;
+            const output = document.getElementById('output');
+            output.contentDocument.body.innerHTML = html + css + js;
+        });
+    }
+
+    // Clear Code Button
+    const clearCodeButton = document.getElementById('clear-code');
+    if (clearCodeButton) {
+        clearCodeButton.addEventListener('click', () => {
+            const htmlCode = document.getElementById('html-code');
+            const cssCode = document.getElementById('css-code');
+            const jsCode = document.getElementById('js-code');
+            const output = document.getElementById('output');
+
+            // Clear text areas
+            htmlCode.value = '';
+            cssCode.value = '';
+            jsCode.value = '';
+
+        // Clear the iframe content
+            output.contentDocument.body.innerHTML = '';
+    });
 }
 
-// Function to update images for dark mode
-const updateImagesForDarkMode = (isDarkMode) => {
+    // Filter Functionality for Resources Section
+    const filterInput = document.getElementById('filter-input');
+    const clearFilter = document.getElementById('clear-filter');
+    const resourceCategories = document.querySelectorAll('.resource-category');
+
+    if (filterInput && clearFilter) {
+        filterInput.addEventListener('input', () => {
+            const filterText = filterInput.value.toLowerCase();
+            resourceCategories.forEach((category) => {
+                const text = category.innerText.toLowerCase();
+                category.style.display = text.includes(filterText) ? 'block' : 'none';
+            });
+        });
+
+        clearFilter.addEventListener('click', () => {
+            filterInput.value = '';
+            resourceCategories.forEach((category) => {
+                category.style.display = 'block';
+            });
+        });
+    }
+
+    // Retrieve Saved Preferences on Page Load
+    const savedTheme = localStorage.getItem('theme');
+    const savedNotifications = localStorage.getItem('notifications') === 'enabled';
+
+    const themeSelect = document.getElementById('theme');
+    const notificationsCheckbox = document.getElementById('notifications');
+
+    if (themeSelect && savedTheme) themeSelect.value = savedTheme;
+    if (notificationsCheckbox) notificationsCheckbox.checked = savedNotifications;
+
+    console.log('User preferences loaded:', { theme: savedTheme, notifications: savedNotifications });
+});
+
+// GSAP Animation Helper Function
+function animateWithGSAP(selector, fromProps, toProps) {
+    if (document.querySelector(selector)) {
+        gsap.fromTo(selector, fromProps, toProps);
+    } else {
+        console.warn(`GSAP target ${selector} not found.`);
+    }
+}
+
+// Function to Load Carousel Content
+function loadCarousel() {
+    fetch('carousel.html')
+        .then((response) => response.text())
+        .then((data) => {
+            const carouselPlaceholder = document.querySelector('.carousel-placeholder');
+            if (carouselPlaceholder) {
+                carouselPlaceholder.innerHTML = data;
+                initializeCarousel(); // Call the function to initialize the carousel events after loading
+            }
+        })
+        .catch((error) => console.error('Error loading carousel:', error));
+}
+
+// Function to Update Images for Dark Mode
+function updateImagesForDarkMode(isDarkMode) {
     const images = document.querySelectorAll('img[data-light][data-dark]');
-    images.forEach(img => {
+    images.forEach((img) => {
         const lightSrc = img.getAttribute('data-light');
         const darkSrc = img.getAttribute('data-dark');
         img.src = isDarkMode ? darkSrc : lightSrc;
     });
-};
+}
 
-// Dark mode toggle functionality
-const toggleButton = document.getElementById('darkModeToggle');
-toggleButton.addEventListener('click', () => {
-    const isDarkMode = document.body.classList.toggle('dark-mode');
-    updateImagesForDarkMode(isDarkMode);
-    localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
-    console.log('Dark mode enabled:', isDarkMode); // Log the current state for debugging
-});
-
-// Function to initialize carousel functionality
+// Function to Initialize Carousel
 function initializeCarousel() {
     let currentSlideIndex = 0;
     const slides = document.querySelectorAll('.carousel-slide');
     const prevButton = document.querySelector('.carousel-button.prev');
     const nextButton = document.querySelector('.carousel-button.next');
 
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.remove('active');
-            if (i === index) {
-                slide.classList.add('active');
-            }
-        });
+    if (slides.length > 0 && prevButton && nextButton) {
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            showSlide(currentSlideIndex);
+        }
+
+        function prevSlide() {
+            currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+            showSlide(currentSlideIndex);
+        }
+
+        nextButton.addEventListener('click', nextSlide);
+        prevButton.addEventListener('click', prevSlide);
+
+        // Automatically move to the next slide every 3 seconds
+        setInterval(nextSlide, 3000);
     }
-
-    function nextSlide() {
-        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-        showSlide(currentSlideIndex);
-    }
-
-    function prevSlide() {
-        currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-        showSlide(currentSlideIndex);
-    }
-
-    nextButton.addEventListener('click', nextSlide);
-    prevButton.addEventListener('click', prevSlide);
-
-    // Automatically move to the next slide every 3 seconds
-    setInterval(nextSlide, 3000);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const subscriptionForm = document.getElementById('subscription-form');
+    const subscriptionMessage = document.getElementById('subscription-message');
+
+    subscriptionForm.addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevent form submission
+
+        const emailInput = document.getElementById('email');
+        const email = emailInput.value;
+
+        // Perform basic email validation
+        if (validateEmail(email)) {
+            subscriptionMessage.style.color = 'green';
+            subscriptionMessage.textContent = `Thank you for subscribing, ${email}!`;
+            subscriptionMessage.style.display = 'block';
+
+            // Simulate sending the email to a server
+            setTimeout(() => {
+                console.log(`Email ${email} added to subscription list.`);
+            }, 500);
+
+            emailInput.value = ''; // Clear input field
+        } else {
+            subscriptionMessage.style.color = 'red';
+            subscriptionMessage.textContent = 'Please enter a valid email address.';
+            subscriptionMessage.style.display = 'block';
+        }
+    });
+
+    // Basic email validation function
+    function validateEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const helpButton = document.getElementById('help-button');
+    const helpSidebar = document.getElementById('help-sidebar');
+    const closeHelpButton = document.getElementById('close-help');
+
+    // Open the help sidebar
+    helpButton.addEventListener('click', () => {
+        helpSidebar.classList.add('open');
+    });
+
+    // Close the help sidebar
+    closeHelpButton.addEventListener('click', () => {
+        helpSidebar.classList.remove('open');
+    });
+
+    // Close the sidebar when clicking outside of it
+    document.addEventListener('click', (event) => {
+        if (!helpSidebar.contains(event.target) && event.target !== helpButton) {
+            helpSidebar.classList.remove('open');
+        }
+    });
+});
