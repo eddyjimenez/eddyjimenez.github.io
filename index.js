@@ -238,3 +238,70 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+// URL of your published CSV file
+const CSV_URL =
+    'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ93mSMEHsXdRiUCXdepJWJ28Weyq8mYpZ8xKLsLJi49rIgt2x27woa-T_1MrjNaNMAoVDWpc_obdrI/pub?output=csv';
+
+fetch(CSV_URL)
+    .then((response) => response.text())
+    .then((csvData) => {
+        const rows = csvData.split('\n').map((row) => row.split(','));
+        const headers = rows[0].map((header) => header.trim()); // Trim headers to remove unwanted spaces
+        const responses = rows.slice(1);
+
+        // Filter valid questions (exclude empty headers or invalid data)
+        const validQuestions = headers.filter((header) => header && !header.toLowerCase().includes('timestamp'));
+        console.log('Valid Questions:', validQuestions);
+
+        validQuestions.forEach((header, index) => {
+            const questionIndex = headers.indexOf(header);
+            const counts = {};
+
+            responses.forEach((row) => {
+                const answer = row[questionIndex]?.trim();
+                if (answer) {
+                    counts[answer] = (counts[answer] || 0) + 1;
+                }
+            });
+
+            console.log(`Counts for "${header}":`, counts);
+
+            // Generate the chart
+            const chartContainer = document.getElementById('charts');
+            const chartItem = document.createElement('div');
+            chartItem.className = 'chart-item';
+
+            const chartTitle = document.createElement('div');
+            chartTitle.className = 'chart-title';
+            chartTitle.textContent = header || "Untitled Question"; // Handle empty headers
+
+            const canvas = document.createElement('canvas');
+            canvas.id = `chart-${index}`;
+
+            chartItem.appendChild(chartTitle);
+            chartItem.appendChild(canvas);
+            chartContainer.appendChild(chartItem);
+
+            const ctx = canvas.getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: Object.keys(counts),
+                    datasets: [
+                        {
+                            data: Object.values(counts),
+                            backgroundColor: ['#4caf50', '#f44336', '#ff9800', '#2196f3', '#9c27b0'],
+                        },
+                    ],
+                },
+                options: {
+                    plugins: {
+                        legend: { position: 'right' },
+                    },
+                },
+            });
+        });
+    })
+    .catch((error) => console.error('Error fetching or processing CSV data:', error));
